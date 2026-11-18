@@ -29,6 +29,21 @@
     };
   </script>
   <style>
+    html {
+      font-size: 16px;
+    }
+    body {
+      font-size: 1rem;
+    }
+    /* Enforce a strict 14px (0.875rem) minimum font size across all elements */
+    .text-xs,
+    .text-\[10px\],
+    .text-\[11px\],
+    .text-\[12px\],
+    .text-\[13px\] {
+      font-size: 0.875rem !important;
+      line-height: 1.35rem !important;
+    }
     @media print {
       .no-print {
         display: none !important;
@@ -53,12 +68,12 @@
   <div id="publisherDrawer" class="hidden bg-amber-50 border-b-2 border-amber-400 text-slate-900 no-print">
     <div class="max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-10 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
       <div>
-        <div class="flex items-center gap-2">
-          <span class="px-2 py-0.5 rounded-md bg-amber-400 text-navy-950 text-[11px] font-extrabold uppercase tracking-wider">Sender Distribution Mode</span>
-          <span id="publisherPhotoCount" class="text-xs font-bold text-slate-700">0 of 35 photos bundled</span>
+        <div class="flex items-center gap-2.5">
+          <span class="px-2.5 py-0.5 rounded-md bg-amber-400 text-navy-950 text-sm font-extrabold uppercase tracking-wider">Sender Distribution Mode</span>
+          <span id="publisherPhotoCount" class="text-sm font-bold text-slate-700">0 of 39 photos bundled</span>
         </div>
-        <p class="text-xs text-slate-600 mt-1">
-          Select your <code class="font-mono bg-white px-1 py-0.5 rounded border border-amber-200">COIN_Insurance_Leadership_Photos</code> folder once to bundle all 35 portraits into a single portable HTML file for your board.
+        <p class="text-sm text-slate-600 mt-1">
+          Select your <code class="font-mono bg-white px-1.5 py-0.5 rounded border border-amber-200">COIN_Insurance_Leadership_Photos</code> folder once to bundle all 35 portraits into a single portable HTML file for your board.
         </p>
       </div>
       <div class="flex flex-wrap items-center gap-2">
@@ -66,21 +81,21 @@
         <button
           id="selectPhotoFolderBtn"
           type="button"
-          class="px-3.5 py-2 rounded-xl bg-white hover:bg-amber-100 text-navy-950 border border-amber-300 text-xs font-bold shadow-sm transition cursor-pointer"
+          class="px-3.5 py-2 rounded-xl bg-white hover:bg-amber-100 text-navy-950 border border-amber-300 text-sm font-bold shadow-sm transition cursor-pointer"
         >
           Select Photo Folder
         </button>
         <button
           id="exportStandaloneHtmlBtn"
           type="button"
-          class="px-3.5 py-2 rounded-xl bg-navy-950 hover:bg-navy-800 text-white text-xs font-bold shadow-sm transition cursor-pointer"
+          class="px-3.5 py-2 rounded-xl bg-navy-950 hover:bg-navy-800 text-white text-sm font-bold shadow-sm transition cursor-pointer"
         >
           Download Standalone Board File
         </button>
         <button
           id="closePublisherBtn"
           type="button"
-          class="px-2.5 py-2 rounded-xl text-slate-500 hover:text-slate-800 text-xs font-semibold cursor-pointer"
+          class="px-3 py-2 rounded-xl text-slate-500 hover:text-slate-800 text-sm font-semibold cursor-pointer"
         >
           Hide
         </button>
@@ -93,7 +108,7 @@
     <div class="max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-10 py-8 sm:py-10">
       <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
         <div class="max-w-4xl">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-400/15 border border-amber-400/30 text-amber-300 text-xs sm:text-sm font-semibold tracking-wider uppercase mb-3.5">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-400/15 border border-amber-400/30 text-amber-300 text-sm font-semibold tracking-wider uppercase mb-3.5">
             <span class="w-2 h-2 rounded-full bg-amber-400"></span>
             OneUnited Bank • Outreach Directory
           </div>
@@ -107,14 +122,14 @@
         </div>
 
         <!-- Relationship Progress & Auto-Save Card -->
-        <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-5 flex flex-col sm:flex-row lg:flex-col items-start sm:items-center lg:items-stretch justify-between gap-4 shrink-0 lg:w-[370px] no-print">
+        <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-5 flex flex-col sm:flex-row lg:flex-col items-start sm:items-center lg:items-stretch justify-between gap-4 shrink-0 lg:w-[390px] no-print">
           <div class="w-full">
-            <div class="flex items-center justify-between mb-1.5">
-              <label for="headerBoardMemberNameInput" class="block text-xs font-bold uppercase tracking-wider text-amber-300">
+            <div class="flex items-center justify-between gap-2 mb-1.5">
+              <label for="headerBoardMemberNameInput" class="block text-sm font-bold uppercase tracking-wider text-amber-300">
                 Your Name
               </label>
-              <span id="autoSaveBadge" class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-[11px] font-bold">
-                <span id="autoSaveDot" class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+              <span id="autoSaveBadge" class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-sm font-bold">
+                <span id="autoSaveDot" class="w-2 h-2 rounded-full bg-emerald-400"></span>
                 <span id="autoSaveText">Auto-saved</span>
               </span>
             </div>
@@ -129,17 +144,17 @@
                 class="w-full pl-10 pr-3.5 py-2.5 rounded-xl bg-white/15 border border-white/25 text-base font-medium text-white placeholder-slate-300 focus:outline-none focus:bg-white focus:text-navy-950 focus:placeholder-slate-400 focus:border-amber-300 transition"
               />
             </div>
-            <p id="headerNameHint" class="hidden mt-1.5 text-xs text-amber-200 font-medium">
+            <p id="headerNameHint" class="hidden mt-1.5 text-sm text-amber-200 font-medium">
               Add your name so your marked contacts are labeled under you.
             </p>
           </div>
 
           <div class="w-full pt-2.5 border-t border-white/10 flex items-center justify-between gap-3">
             <div>
-              <p class="text-xs font-semibold uppercase tracking-wider text-amber-300">Marked Connections</p>
+              <p class="text-sm font-semibold uppercase tracking-wider text-amber-300">Marked Connections</p>
               <div class="flex items-baseline gap-2 mt-0.5">
                 <span id="markedCountHeader" class="text-3xl font-extrabold text-white">0</span>
-                <span class="text-sm text-slate-300">of 35 leaders</span>
+                <span class="text-base text-slate-300">of 39 leaders</span>
               </div>
             </div>
           </div>
@@ -161,7 +176,7 @@
               class="flex-1 inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white border border-white/20 font-semibold text-sm transition cursor-pointer"
             >
               <span>Board Results</span>
-              <span id="submittedCountHeader" class="px-1.5 py-0.5 rounded-md bg-amber-400/20 text-amber-300 font-bold text-xs">0</span>
+              <span id="submittedCountHeader" class="px-2 py-0.5 rounded-md bg-amber-400/20 text-amber-300 font-bold text-sm">0</span>
             </button>
           </div>
         </div>
@@ -205,7 +220,7 @@
           >
             <span id="markedOnlyDot" class="w-2.5 h-2.5 rounded-full bg-slate-300"></span>
             <span>Marked Only</span>
-            <span id="markedCountPill" class="px-2 py-0.5 text-xs rounded-md bg-slate-100 text-slate-700 font-bold">0</span>
+            <span id="markedCountPill" class="px-2 py-0.5 text-sm rounded-md bg-slate-100 text-slate-700 font-bold">0</span>
           </button>
         </div>
       </div>
@@ -247,9 +262,9 @@
   <!-- Main Directory Content -->
   <main class="max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-10 py-6 sm:py-8 pb-28">
     <!-- Quick Status Line -->
-    <div class="flex flex-wrap items-center justify-between gap-2 mb-6 text-sm sm:text-base text-slate-600">
-      <p id="resultsStatusText">Showing all 35 contacts across 12 organizations</p>
-      <p id="syncStatusText" class="text-xs sm:text-sm text-emerald-700 font-medium flex items-center gap-1.5">
+    <div class="flex flex-wrap items-center justify-between gap-2 mb-6 text-base text-slate-600">
+      <p id="resultsStatusText">Showing all 39 contacts across 12 organizations</p>
+      <p id="syncStatusText" class="text-sm text-emerald-700 font-medium flex items-center gap-1.5">
         <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
         <span>All selections save automatically</span>
       </p>
@@ -287,14 +302,14 @@
       <div class="flex items-center gap-3">
         <span class="flex items-center justify-center w-9 h-9 rounded-xl bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 font-extrabold text-base" id="floatingCount">0</span>
         <div>
-          <p class="text-sm sm:text-base font-bold text-white leading-snug flex items-center gap-2">
+          <p class="text-base font-bold text-white leading-snug flex items-center gap-2">
             <span>Relationships Auto-Saved</span>
-            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-semibold">
+            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-sm font-semibold">
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
               Saved
             </span>
           </p>
-          <p id="floatingSubtitle" class="text-xs sm:text-sm text-slate-300">Automatically recorded for OneUnited Bank</p>
+          <p id="floatingSubtitle" class="text-sm text-slate-300">Automatically recorded for OneUnited Bank</p>
         </div>
       </div>
       <div class="flex items-center gap-2.5 w-full sm:w-auto justify-end">
@@ -314,7 +329,7 @@
     <div class="bg-white rounded-2xl shadow-2xl border border-slate-200 w-full max-w-2xl overflow-hidden flex flex-col max-h-[92vh]">
       <div class="px-5 py-3.5 bg-navy-950 text-white flex items-center justify-between border-b border-slate-800">
         <div class="min-w-0 pr-3">
-          <span id="lightboxOrg" class="block text-[11px] font-bold uppercase tracking-wider text-amber-300">Organization</span>
+          <span id="lightboxOrg" class="block text-sm font-bold uppercase tracking-wider text-amber-300">Organization</span>
           <h3 id="lightboxName" class="text-lg sm:text-xl font-extrabold text-white truncate">Executive Name</h3>
         </div>
         <button
@@ -350,7 +365,7 @@
         />
         <div id="lightboxFallback" class="hidden w-64 h-72 flex-col items-center justify-center bg-gradient-to-br from-navy-900 to-navy-800 text-amber-300 p-4 text-center rounded-2xl my-8">
           <span id="lightboxInitials" class="text-5xl font-extrabold tracking-tight">WK</span>
-          <span id="lightboxFallbackOrg" class="text-xs uppercase tracking-wider text-slate-300 mt-2">Organization</span>
+          <span id="lightboxFallbackOrg" class="text-sm uppercase tracking-wider text-slate-300 mt-2">Organization</span>
         </div>
 
         <button
@@ -386,14 +401,14 @@
       <!-- Modal Header -->
       <div class="px-6 py-4 bg-navy-950 text-white flex items-center justify-between border-b border-slate-800">
         <div>
-          <div class="flex items-center gap-2.5">
+          <div class="flex flex-wrap items-center gap-2.5">
             <h2 class="text-lg sm:text-xl font-bold">Your Marked COIN Leadership Relationships</h2>
-            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-400/35 text-emerald-300 text-xs font-bold">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-400/35 text-emerald-300 text-sm font-bold">
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
               Auto-Saved
             </span>
           </div>
-          <p id="summaryModalSubtitle" class="text-xs sm:text-sm text-slate-300 mt-0.5">Every selection you mark is saved automatically</p>
+          <p id="summaryModalSubtitle" class="text-sm text-slate-300 mt-0.5">Every selection you mark is saved automatically</p>
         </div>
         <button
           type="button"
@@ -410,28 +425,28 @@
       <!-- Modal Body -->
       <div class="p-6 overflow-y-auto flex-1 space-y-5">
         <!-- Identification Fields (Auto-Synced) -->
-        <div class="rounded-xl bg-slate-50 border border-slate-200 p-4 space-y-2">
+        <div class="rounded-xl bg-slate-50 border border-slate-200 p-4 space-y-2.5">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-            <label class="block text-xs font-bold uppercase tracking-wider text-navy-900">
+            <label class="block text-sm font-bold uppercase tracking-wider text-navy-900">
               Your Full Name
               <input
                 id="modalSubmitterName"
                 type="text"
                 placeholder="e.g., Jane Doe"
-                class="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2 text-sm font-medium text-slate-900 placeholder-slate-400 focus:outline-none focus:border-navy-900"
+                class="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2 text-base font-medium text-slate-900 placeholder-slate-400 focus:outline-none focus:border-navy-900"
               />
             </label>
-            <label class="block text-xs font-bold uppercase tracking-wider text-navy-900">
+            <label class="block text-sm font-bold uppercase tracking-wider text-navy-900">
               Your Email or Title <span class="text-slate-400 font-normal">(Optional)</span>
               <input
                 id="modalSubmitterEmail"
                 type="text"
                 placeholder="e.g., Board Director / jane@company.com"
-                class="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2 text-sm font-medium text-slate-900 placeholder-slate-400 focus:outline-none focus:border-navy-900"
+                class="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2 text-base font-medium text-slate-900 placeholder-slate-400 focus:outline-none focus:border-navy-900"
               />
             </label>
           </div>
-          <p class="text-xs text-emerald-700 font-medium">
+          <p class="text-sm text-emerald-700 font-medium">
             Changes to your name, email, or marked contacts save automatically—no submit button required.
           </p>
         </div>
@@ -448,7 +463,7 @@
           <button
             id="clearAllBtn"
             type="button"
-            class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold text-rose-600 hover:bg-rose-50 border border-rose-200 transition cursor-pointer"
+            class="px-3.5 py-2 rounded-xl text-sm font-semibold text-rose-600 hover:bg-rose-50 border border-rose-200 transition cursor-pointer"
           >
             Clear All
           </button>
@@ -458,7 +473,7 @@
           <button
             type="button"
             data-action="print-page"
-            class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 text-xs sm:text-sm font-semibold transition cursor-pointer"
+            class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 text-sm font-semibold transition cursor-pointer"
           >
             Print / PDF
           </button>
@@ -466,7 +481,7 @@
           <button
             type="button"
             data-action="copy-summary"
-            class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white hover:bg-slate-100 text-navy-900 border border-slate-300 text-xs sm:text-sm font-semibold transition cursor-pointer"
+            class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white hover:bg-slate-100 text-navy-900 border border-slate-300 text-sm font-semibold transition cursor-pointer"
           >
             Copy Text
           </button>
@@ -474,7 +489,7 @@
           <button
             type="button"
             data-action="open-results"
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-navy-900 hover:bg-navy-800 text-white text-xs sm:text-sm font-bold shadow-sm transition cursor-pointer"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-navy-900 hover:bg-navy-800 text-white text-sm font-bold shadow-sm transition cursor-pointer"
           >
             View Board Results
           </button>
@@ -490,7 +505,7 @@
       <div class="px-6 py-4 bg-navy-950 text-white flex items-center justify-between border-b border-slate-800">
         <div>
           <h2 class="text-lg sm:text-xl font-bold">Board Relationship Rollup — Master Summary</h2>
-          <p id="resultsModalSubtitle" class="text-xs sm:text-sm text-slate-300 mt-0.5">Auto-saved rollup of marked relationships for OneUnited Bank</p>
+          <p id="resultsModalSubtitle" class="text-sm text-slate-300 mt-0.5">Auto-saved rollup of marked relationships for OneUnited Bank</p>
         </div>
         <button
           type="button"
@@ -506,7 +521,7 @@
 
       <!-- KPI Strip & View Switcher -->
       <div class="px-6 py-3.5 bg-slate-50 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div class="flex flex-wrap items-center gap-4 text-xs sm:text-sm">
+        <div class="flex flex-wrap items-center gap-3 text-sm">
           <div class="px-3 py-1.5 rounded-xl bg-white border border-slate-200">
             <span class="text-slate-500">Contributors:</span>
             <strong id="kpiMembersCount" class="text-navy-950 font-extrabold ml-1">0</strong>
@@ -525,14 +540,14 @@
           <button
             type="button"
             data-results-tab="by-leader"
-            class="px-3 py-1.5 rounded-lg text-xs font-bold bg-white text-navy-950 shadow-sm transition cursor-pointer"
+            class="px-3.5 py-1.5 rounded-lg text-sm font-bold bg-white text-navy-950 shadow-sm transition cursor-pointer"
           >
             By COIN Leader
           </button>
           <button
             type="button"
             data-results-tab="by-member"
-            class="px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-navy-950 transition cursor-pointer"
+            class="px-3.5 py-1.5 rounded-lg text-sm font-bold text-slate-600 hover:text-navy-950 transition cursor-pointer"
           >
             By Board Member
           </button>
@@ -546,19 +561,19 @@
 
       <!-- Results Footer -->
       <div class="px-6 py-4 bg-slate-50 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3">
-        <p class="text-xs sm:text-sm text-slate-500">Updates automatically as relationships are marked</p>
+        <p class="text-sm text-slate-500">Updates automatically as relationships are marked</p>
         <div class="flex flex-wrap items-center gap-2.5 ml-auto">
           <button
             type="button"
             data-action="copy-master-report"
-            class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-navy-900 hover:bg-navy-800 text-white text-xs sm:text-sm font-semibold transition cursor-pointer"
+            class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-navy-900 hover:bg-navy-800 text-white text-sm font-semibold transition cursor-pointer"
           >
             Copy Master Report
           </button>
           <button
             type="button"
             data-action="download-csv"
-            class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-navy-950 text-xs sm:text-sm font-bold shadow-sm transition cursor-pointer"
+            class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-navy-950 text-sm font-bold shadow-sm transition cursor-pointer"
           >
             Download CSV
           </button>
@@ -775,6 +790,23 @@
         history: "Joined UnitedHealth Group in 2008 as a Regional Medical Director and later served as Chief Medical Officer for UnitedHealthcare Global and Associate Chief Medical Officer of UnitedHealth Group. Prior to joining UnitedHealth Group, she served as a Physician Advisor at Gateway Medical Center in Granite City, Illinois (2006–2008) and spent six years on the faculty at Saint Louis University School of Medicine (2000–2006), where she was a tenured Associate Professor of Internal and Geriatric Medicine, Director of Geriatric Ambulatory Services, and Director of the Ortho-Geriatric Service. Earlier in her medical career, she practiced medicine in Nigeria and the United Kingdom.",
         education: "M.B.B.S. (M.D.) from the University of Ibadan College of Medicine in Nigeria (1983) and an Executive M.B.A. in Healthcare Management from Western Governors University (2013). She completed postgraduate internal medicine and clinical cardiology training at University College Hospital, Ibadan, the Royal Postgraduate Medical School at Hammersmith Hospital in London (earning Membership of the Royal College of Physicians, MRCP), and New York University Downtown Hospital."
       },
+      {
+        id: "joy-fitzgerald",
+        organization: "United Health Group",
+        name: "Joy Fitzgerald",
+        initials: "JF",
+        photoFile: "36_Joy_Fitzgerald_-_United_Health_Group.png",
+        altPhotoFiles: [
+          "36_Joy_Fitzgerald.png",
+          "Joy_Fitzgerald.png"
+        ],
+        roleLabel: "Role",
+        role: "Senior Vice President and Chief Inclusion & Belonging Officer (formerly titled Chief Diversity, Equity and Inclusion Officer) at UnitedHealth Group (since May 2021).",
+        location: "Minnetonka, Minnesota (Greater Minneapolis–Saint Paul Area).",
+        historyLabel: "Previous Companies",
+        history: "Previously served as Vice President and Chief Diversity & Inclusion Officer at Eli Lilly and Company, Chief Diversity Officer at Rockwell Collins, and held human resources leadership roles at ServiceMaster, Qsource, and Whitehaven Health Center.",
+        education: "Bachelor of Professional Studies (B.P.S.) in Organizational Development and Master of Professional Studies (M.P.S.) in Strategic Leadership from the University of Memphis."
+      },
 
       // NEW YORK LIFE
       {
@@ -789,6 +821,23 @@
         historyLabel: "Work History",
         history: "Served as Chief Executive Officer of Feeding America (2018–April 2026). Prior to that, she spent 13 years in executive leadership at Walmart Inc. (2004–2017), serving as Executive Vice President and Global Treasurer (2014–2017), Senior Vice President and Chief Tax Officer (2007–2014), and Vice President of Audits and Tax Policy (2004–2007). Earlier in her career, she was Partner-in-Charge of the Baton Rouge office and tax practice leader at Adams and Reese LLP, Dispute Resolution Practice Group Leader at PwC, and Assistant Secretary for the Office of Legal Affairs and Administrative Law Judge for the State of Louisiana.",
         education: "B.S. from the University of Louisiana at Lafayette (formerly University of Southwestern Louisiana), J.D. from Southern University Law Center (1989), and an LL.M. in Taxation from Southern Methodist University (SMU) Dedman School of Law (1992)."
+      },
+      {
+        id: "eric-b-jackson",
+        organization: "New York Life",
+        name: "Eric B. Jackson",
+        initials: "EJ",
+        photoFile: "37_Eric_B_Jackson_-_New_York_Life.png",
+        altPhotoFiles: [
+          "37_Eric_B_Jackson.png",
+          "Eric_B_Jackson.png"
+        ],
+        roleLabel: "Role",
+        role: "Vice President and Head of Agency Diversity, Equity and Inclusion at New York Life Insurance Company (appointed in 2021).",
+        location: "Atlanta, Georgia / New York, New York.",
+        historyLabel: "Previous Companies",
+        history: "Joined New York Life in 2003 and previously served as Head of the African American Market Unit, leading financial education and wealth-building strategies across New York Life’s agency field force.",
+        education: "Holds CLU, ChFC, and LUTCF professional designations from The American College of Financial Services."
       },
 
       // MASS MUTUAL
@@ -1069,6 +1118,42 @@
         historyLabel: "Work History",
         history: "Retired President of the ECMC Foundation (2014–2023). Previously served as Executive Vice President and Chief Financial Officer for the University of California system (2009–2014) and spent nearly 17 years in municipal finance investment banking as a Managing Director at Lehman Brothers and Barclays Capital. He also serves on the boards of Edison International (as Chair), 23andMe, and The Ralph M. Parsons Foundation.",
         education: "B.A. in Political Science and History from the University of California, Los Angeles (UCLA) and an M.A. in Public Policy from Claremont Graduate University."
+      },
+      {
+        id: "geneva-brown",
+        organization: "Cigna Health Group",
+        name: "Geneva Brown",
+        initials: "GB",
+        photoFile: "38_Geneva_Brown_-_Cigna_Health_Group.png",
+        altPhotoFiles: [
+          "38_Geneva_Brown_-_The_Cigna_Group.png",
+          "38_Geneva_Brown.png",
+          "Geneva_Brown.png"
+        ],
+        roleLabel: "Role",
+        role: "Vice President of Corporate Impact and Chief Sustainability & Inclusion Officer at The Cigna Group, as well as Lead Counsel and Corporate Secretary for The Cigna Group Foundation.",
+        location: "Philadelphia, Pennsylvania / Bloomfield, Connecticut.",
+        historyLabel: "Previous Companies",
+        history: "Joined Cigna in 2017 as Associate Senior Counsel supporting corporate governance, M&A, and venture capital transactions. Prior to Cigna, she practiced corporate and securities law at Dechert LLP and served as a federal law clerk for the U.S. District Court for the Eastern District of Virginia.",
+        education: "J.D. from the University of Pennsylvania Carey Law School and a Master of Bioethics (M.B.E.) from the University of Pennsylvania Perelman School of Medicine."
+      },
+      {
+        id: "allison-green-johnson",
+        organization: "Cigna Health Group",
+        name: "Allison Green Johnson",
+        initials: "AJ",
+        photoFile: "39_Allison_Green_Johnson_-_Cigna_Health_Group.png",
+        altPhotoFiles: [
+          "39_Allison_Green_Johnson_-_Lincoln_Financial_Group.png",
+          "39_Allison_Green_Johnson.png",
+          "Allison_Green_Johnson.png"
+        ],
+        roleLabel: "Role",
+        role: "Senior Vice President of People, Culture & Communications and President of the Lincoln Financial Foundation (formerly SVP and Chief Diversity Officer, 2011–2022) at Lincoln Financial Group.",
+        location: "Radnor / Wayne, Pennsylvania (Greater Philadelphia Area).",
+        historyLabel: "Previous Companies",
+        history: "Previously served as Corporate Director of Diversity and Inclusion at Wyeth (2006–2009) and held human resources leadership roles at Vanguard (1999–2006).",
+        education: "B.A. in Psychology from Spelman College and an M.A. in Counseling Psychology from Howard University."
       }
     ];
 
@@ -1361,6 +1446,25 @@
       "University of Missouri–Columbia School of Law",
       "University of North Carolina at Chapel Hill",
       "University of Chicago Booth School of Business",
+      "U.S. District Court for the Eastern District of Virginia",
+      "University of Pennsylvania Perelman School of Medicine",
+      "University of Pennsylvania Carey Law School",
+      "The American College of Financial Services",
+      "New York Life Insurance Company",
+      "Lincoln Financial Foundation",
+      "African American Market Unit",
+      "The Cigna Group Foundation",
+      "Whitehaven Health Center",
+      "University of Memphis",
+      "The Cigna Group",
+      "Rockwell Collins",
+      "Spelman College",
+      "New York Life",
+      "ServiceMaster",
+      "Dechert LLP",
+      "Vanguard",
+      "Qsource",
+      "Wyeth",
       "Alpha Kappa Alpha Sorority, Incorporated®",
       "University of California, Los Angeles (UCLA)",
       "Verner, Liipfert, Bernhard, McPherson & Hand",
@@ -1669,21 +1773,24 @@
       if (bakedPhotos[leader.id]) {
         return [bakedPhotos[leader.id]];
       }
-      const file = leader.photoFile;
-      if (!file) return [];
+      const files = [leader.photoFile, ...(leader.altPhotoFiles || [])].filter(Boolean);
+      if (files.length === 0) return [];
 
-      const altExtFile = file.endsWith(".jpg")
-        ? file.replace(/\.jpg$/i, ".png")
-        : file.replace(/\.png$/i, ".jpg");
-
-      return [
-        `COIN_Insurance_Leadership_Photos/${file}`,
-        file,
-        `photos/${file}`,
-        `COIN_Insurance_Leadership_Photos/${altExtFile}`,
-        altExtFile,
-        `photos/${altExtFile}`
-      ];
+      const candidates = [];
+      for (const file of files) {
+        const altExtFile = file.endsWith(".jpg")
+          ? file.replace(/\.jpg$/i, ".png")
+          : file.replace(/\.png$/i, ".jpg");
+        candidates.push(
+          `COIN_Insurance_Leadership_Photos/${file}`,
+          file,
+          `photos/${file}`,
+          `COIN_Insurance_Leadership_Photos/${altExtFile}`,
+          altExtFile,
+          `photos/${altExtFile}`
+        );
+      }
+      return [...new Set(candidates)];
     }
 
     // Clean search title for optional Wikipedia portrait fallback
@@ -1885,7 +1992,7 @@
         `<button
           type="button"
           data-org="ALL"
-          class="shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition cursor-pointer ${
+          class="shrink-0 px-4 py-2 rounded-full text-sm font-semibold transition cursor-pointer ${
             allActive
               ? "bg-navy-900 text-white shadow-sm"
               : "bg-slate-100 text-slate-700 hover:bg-slate-200/80"
@@ -1902,7 +2009,7 @@
           `<button
             type="button"
             data-org="${escapeHtml(org)}"
-            class="shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition cursor-pointer ${
+            class="shrink-0 px-4 py-2 rounded-full text-sm font-semibold transition cursor-pointer ${
               active
                 ? "bg-navy-900 text-white shadow-sm"
                 : "bg-slate-100 text-slate-700 hover:bg-slate-200/80"
@@ -2031,9 +2138,9 @@
                 }
                 <div class="${initialSrc ? "hidden" : "flex"} w-full h-full flex-col items-center justify-center bg-gradient-to-br from-navy-900 to-navy-800 text-amber-300 p-2 text-center">
                   <span class="text-2xl sm:text-3xl font-extrabold tracking-tight">${escapeHtml(leader.initials)}</span>
-                  <span class="text-[10px] uppercase tracking-wider text-slate-300 mt-1 line-clamp-2">${escapeHtml(leader.organization)}</span>
+                  <span class="text-sm uppercase tracking-wider text-slate-300 mt-1 line-clamp-2">${escapeHtml(leader.organization)}</span>
                 </div>
-                <span class="no-print absolute bottom-2 right-2 inline-flex items-center gap-1 px-2 py-1 rounded-lg bg-navy-950/75 group-hover:bg-navy-950 text-white text-[11px] font-semibold backdrop-blur-xs shadow-sm transition">
+                <span class="no-print absolute bottom-2 right-2 inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-navy-950/80 group-hover:bg-navy-950 text-white text-sm font-semibold backdrop-blur-xs shadow-sm transition">
                   <svg class="w-3.5 h-3.5 text-amber-300" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 104.5 4.5a7.5 7.5 0 0012.15 12.15zM10 7v6m-3-3h6" />
                   </svg>
@@ -2051,7 +2158,7 @@
                       </h3>
                       ${
                         isMarked
-                          ? `<span class="inline-flex items-center gap-1 px-3 py-0.5 rounded-full bg-emerald-600 text-white text-xs font-bold">
+                          ? `<span class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-emerald-600 text-white text-sm font-bold">
                               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                               </svg>
@@ -2133,7 +2240,7 @@
                         ${
                           !isExpanded
                             ? `<div class="flex flex-wrap items-center justify-between gap-2">
-                                <div class="flex flex-wrap items-center gap-2 text-xs sm:text-sm text-emerald-900">
+                                <div class="flex flex-wrap items-center gap-2 text-sm text-emerald-900">
                                   ${
                                     hasOptionalInfo
                                       ? `${
@@ -2159,21 +2266,21 @@
                                   type="button"
                                   data-action="toggle-details"
                                   data-leader-id="${escapeHtml(leader.id)}"
-                                  class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold text-emerald-800 hover:bg-emerald-100/80 transition cursor-pointer"
+                                  class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-800 hover:bg-emerald-100/80 transition cursor-pointer"
                                 >
                                   <span>${hasOptionalInfo ? "Edit Details" : "+ Add Details (Optional)"}</span>
                                 </button>
                               </div>`
                             : `<div class="rounded-xl bg-white/95 border border-emerald-200 p-4 space-y-3.5 shadow-xs">
                                 <div class="flex items-center justify-between">
-                                  <span class="text-xs font-bold uppercase tracking-wider text-emerald-900">
+                                  <span class="text-sm font-bold uppercase tracking-wider text-emerald-900">
                                     Optional Context &amp; Connection Strength (Auto-Saved)
                                   </span>
                                   <button
                                     type="button"
                                     data-action="toggle-details"
                                     data-leader-id="${escapeHtml(leader.id)}"
-                                    class="text-xs sm:text-sm font-semibold text-slate-600 hover:text-navy-950 px-2.5 py-1 rounded-md hover:bg-slate-100 cursor-pointer"
+                                    class="text-sm font-semibold text-slate-600 hover:text-navy-950 px-2.5 py-1 rounded-md hover:bg-slate-100 cursor-pointer"
                                   >
                                     Done
                                   </button>
@@ -2195,8 +2302,8 @@
                                             : "bg-slate-50/70 hover:bg-emerald-50/60 text-slate-800 border-slate-200"
                                         }"
                                       >
-                                        <div class="text-xs sm:text-sm font-bold leading-snug">${escapeHtml(opt.value)}</div>
-                                        <div class="text-xs leading-tight mt-0.5 ${
+                                        <div class="text-sm font-bold leading-snug">${escapeHtml(opt.value)}</div>
+                                        <div class="text-sm leading-snug mt-0.5 ${
                                           active ? "text-emerald-100" : "text-slate-500"
                                         }">${escapeHtml(opt.hint)}</div>
                                       </button>
@@ -2206,7 +2313,7 @@
 
                                 <!-- Quick-Select Context Chips -->
                                 <div>
-                                  <span class="block text-xs font-semibold text-slate-500 mb-1.5">How you know them (optional):</span>
+                                  <span class="block text-sm font-semibold text-slate-500 mb-1.5">How you know them (optional):</span>
                                   <div class="flex flex-wrap gap-2">
                                     ${CONTEXT_TAG_OPTIONS.map((tag) => {
                                       const tagActive = selectedTags.includes(tag);
@@ -2216,7 +2323,7 @@
                                           data-action="toggle-context-tag"
                                           data-leader-id="${escapeHtml(leader.id)}"
                                           data-tag="${escapeHtml(tag)}"
-                                          class="px-3 py-1 rounded-full text-xs sm:text-sm font-semibold border transition cursor-pointer ${
+                                          class="px-3 py-1 rounded-full text-sm font-semibold border transition cursor-pointer ${
                                             tagActive
                                               ? "bg-navy-900 text-white border-navy-900"
                                               : "bg-slate-50 hover:bg-slate-100 text-slate-700 border-slate-200"
@@ -2286,7 +2393,7 @@
                 <span class="w-1.5 h-7 rounded-full bg-amber-400"></span>
                 <h2 class="text-xl sm:text-2xl font-extrabold text-navy-950 tracking-tight">${escapeHtml(org)}</h2>
               </div>
-              <span class="px-3 py-1 rounded-full bg-slate-200/80 text-slate-700 text-xs sm:text-sm font-bold">
+              <span class="px-3 py-1 rounded-full bg-slate-200/80 text-slate-700 text-sm font-bold">
                 ${orgLeaders.length} ${orgLeaders.length === 1 ? "Leader" : "Leaders"}
               </span>
             </div>
@@ -2389,8 +2496,8 @@
         blocks.push(`
           <div class="rounded-xl border border-slate-200 overflow-hidden">
             <div class="px-4 py-2.5 bg-slate-100 border-b border-slate-200 flex items-center justify-between">
-              <span class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-navy-950">${escapeHtml(org)}</span>
-              <span class="text-xs sm:text-sm font-semibold text-slate-600">${orgMarked.length}</span>
+              <span class="text-sm font-extrabold uppercase tracking-wider text-navy-950">${escapeHtml(org)}</span>
+              <span class="text-sm font-semibold text-slate-600">${orgMarked.length}</span>
             </div>
             <div class="divide-y divide-slate-100">
               ${orgMarked
@@ -2404,12 +2511,12 @@
                         <p class="text-base font-bold text-navy-950">${escapeHtml(leader.name)}</p>
                         <p class="text-sm text-slate-600 mt-0.5 line-clamp-2">${formatBioText(leader.role)}</p>
                         <div class="mt-2 flex flex-wrap items-center gap-2">
-                          <span class="px-2.5 py-0.5 rounded-md bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold">
+                          <span class="px-2.5 py-0.5 rounded-md bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-semibold">
                             ${escapeHtml(strength)}
                           </span>
                           ${
                             context
-                              ? `<span class="text-xs sm:text-sm text-slate-600">• ${escapeHtml(context)}</span>`
+                              ? `<span class="text-sm text-slate-600">• ${escapeHtml(context)}</span>`
                               : ""
                           }
                         </div>
@@ -2418,7 +2525,7 @@
                         type="button"
                         data-action="remove-mark"
                         data-leader-id="${escapeHtml(leader.id)}"
-                        class="shrink-0 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold text-slate-500 hover:text-rose-600 hover:bg-rose-50 transition cursor-pointer"
+                        class="shrink-0 px-3 py-1.5 rounded-lg text-sm font-semibold text-slate-500 hover:text-rose-600 hover:bg-rose-50 transition cursor-pointer"
                       >
                         Remove
                       </button>
@@ -2460,8 +2567,8 @@
       document.querySelectorAll("[data-results-tab]").forEach((btn) => {
         const active = btn.getAttribute("data-results-tab") === state.resultsTab;
         btn.className = active
-          ? "px-3 py-1.5 rounded-lg text-xs font-bold bg-white text-navy-950 shadow-sm transition cursor-pointer"
-          : "px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-navy-950 transition cursor-pointer";
+          ? "px-3.5 py-1.5 rounded-lg text-sm font-bold bg-white text-navy-950 shadow-sm transition cursor-pointer"
+          : "px-3.5 py-1.5 rounded-lg text-sm font-bold text-slate-600 hover:text-navy-950 transition cursor-pointer";
       });
 
       if (subs.length === 0) {
@@ -2485,13 +2592,13 @@
                 <div class="px-4 py-3 bg-slate-50 border-b border-slate-200 flex flex-wrap items-center justify-between gap-2">
                   <div>
                     <h3 class="text-base font-extrabold text-navy-950">${escapeHtml(sub.submitterName)}</h3>
-                    <p class="text-xs sm:text-sm text-slate-500">
+                    <p class="text-sm text-slate-500">
                       ${sub.submitterEmail ? `${escapeHtml(sub.submitterEmail)} • ` : ""}Auto-saved ${escapeHtml(
               sub.submittedAtDisplay || sub.submittedAt || ""
             )}
                     </p>
                   </div>
-                  <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 text-xs sm:text-sm font-bold">
+                  <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 text-sm font-bold">
                     ${rels.length} ${rels.length === 1 ? "Connection" : "Connections"}
                   </span>
                 </div>
@@ -2499,13 +2606,13 @@
                   ${rels
                     .map(
                       (r) => `
-                        <div class="px-4 py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-sm">
+                        <div class="px-4 py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 text-sm">
                           <div>
                             <span class="font-bold text-navy-950">${escapeHtml(r.leaderName)}</span>
                             <span class="text-slate-500"> (${escapeHtml(r.organization)})</span>
                             ${r.note ? `<span class="text-slate-600"> — ${escapeHtml(r.note)}</span>` : ""}
                           </div>
-                          <span class="self-start sm:self-auto px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-700 text-xs font-semibold">
+                          <span class="self-start sm:self-auto px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-700 text-sm font-semibold">
                             ${escapeHtml(r.strength || "Connected")}
                           </span>
                         </div>
@@ -2548,12 +2655,12 @@
             <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-xs space-y-2.5">
               <div class="flex flex-wrap items-center justify-between gap-2">
                 <div>
-                  <span class="text-xs font-bold uppercase tracking-wider text-amber-600">${escapeHtml(
+                  <span class="text-sm font-bold uppercase tracking-wider text-amber-600">${escapeHtml(
                     entry.organization
                   )}</span>
                   <h3 class="text-base sm:text-lg font-extrabold text-navy-950">${escapeHtml(entry.leaderName)}</h3>
                 </div>
-                <span class="px-3 py-1 rounded-full bg-navy-900 text-white text-xs sm:text-sm font-bold">
+                <span class="px-3 py-1 rounded-full bg-navy-900 text-white text-sm font-bold">
                   ${entry.connectors.length} ${entry.connectors.length === 1 ? "Contact" : "Contacts"}
                 </span>
               </div>
@@ -2563,8 +2670,8 @@
                     (c) => `
                       <div class="rounded-xl bg-emerald-50/70 border border-emerald-200 px-3.5 py-2.5 text-sm">
                         <div class="font-bold text-emerald-950">${escapeHtml(c.submitterName)}</div>
-                        <div class="text-emerald-800 text-xs font-medium mt-0.5">${escapeHtml(c.strength || "Connected")}</div>
-                        ${c.note ? `<div class="text-slate-600 text-xs mt-0.5">${escapeHtml(c.note)}</div>` : ""}
+                        <div class="text-emerald-800 text-sm font-medium mt-0.5">${escapeHtml(c.strength || "Connected")}</div>
+                        ${c.note ? `<div class="text-slate-600 text-sm mt-0.5">${escapeHtml(c.note)}</div>` : ""}
                       </div>
                     `
                   )
