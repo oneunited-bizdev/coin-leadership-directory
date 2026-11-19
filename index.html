@@ -1998,7 +1998,7 @@
       return orgs;
     }
 
-    // Filter leaders by search text, selected organization, and My Connections toggle
+    // Filter leaders by search text, selected organization, and Selected Only toggle
     function getFilteredLeaders() {
       const q = state.search.trim().toLowerCase();
       return LEADERS.filter((leader) => {
@@ -2471,12 +2471,12 @@
       const lines = [
         "CALIFORNIA ORGANIZED INVESTMENT NETWORK (COIN) INSURANCE LEADERSHIP",
         `Name: ${submitter}${email ? ` (${email})` : ""}`,
-        `Total Saved Connections: ${markedIds.length}`,
+        `Total Selected Contacts: ${markedIds.length}`,
         "------------------------------------------------------------"
       ];
 
       if (markedIds.length === 0) {
-        lines.push("No connections saved yet.");
+        lines.push("No contacts selected yet.");
         return lines.join("\n");
       }
 
@@ -3009,7 +3009,7 @@
         });
       }
 
-      // My Connections Filter Toggle
+      // Selected Only Filter Toggle
       const toggleMarkedOnlyBtn = document.getElementById("toggleMarkedOnlyBtn");
       if (toggleMarkedOnlyBtn) {
         toggleMarkedOnlyBtn.addEventListener("click", () => {
