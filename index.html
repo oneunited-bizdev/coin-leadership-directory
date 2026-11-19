@@ -1186,6 +1186,10 @@
     const SUBMISSIONS_LOCAL_KEY = "coin_leadership_submissions_v1";
     const SESSION_ID_KEY = "coin_leadership_session_id_v1";
 
+    // 🔗 GOOGLE SHEET CONNECTION:
+    // Paste your Google Apps Script Web App URL between the quotes below to automatically send responses to your Sheet.
+    const GOOGLE_SHEET_WEBAPP_URL = "";
+
     const STRENGTH_OPTIONS = [
       {
         value: "Close / Direct Contact",
@@ -1402,25 +1406,20 @@
       persistSubmissionsLocal();
       updateCounters();
 
-      // Debounced background sync to optional backend endpoints
+      // Debounced background sync to Google Sheet
       if (autoSaveSyncTimer) clearTimeout(autoSaveSyncTimer);
       autoSaveSyncTimer = setTimeout(async () => {
-        try {
-          const res = await fetch("/api/submit", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(record)
-          });
-          if (res.ok) {
-            const data = await res.json();
-            if (data && Array.isArray(data.submissions)) {
-              state.submissions = data.submissions;
-              persistSubmissionsLocal();
-              updateCounters();
-            }
+        if (GOOGLE_SHEET_WEBAPP_URL) {
+          try {
+            fetch(GOOGLE_SHEET_WEBAPP_URL, {
+              method: "POST",
+              mode: "no-cors",
+              headers: { "Content-Type": "text/plain" }, // Prevents CORS preflight failures on free Apps Script endpoints
+              body: JSON.stringify(record)
+            });
+          } catch (err) {
+            console.warn("Google Sheet sync failed:", err);
           }
-        } catch (err) {
-          // Static hosting mode — local auto-save already completed
         }
 
         if (cloud.enabled && cloud.db && cloud.firestoreMod) {
