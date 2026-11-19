@@ -337,7 +337,7 @@
     </footer>
   </main>
 
-  <!-- Floating Bottom Auto-Save Status Bar (appears when >= 1 relationship marked) -->
+  <!-- Floating Bottom Auto-Save Status Bar (appears when >= 1 connection added) -->
   <div id="floatingBar" class="fixed bottom-4 inset-x-0 z-40 px-4 pointer-events-none hidden no-print">
     <div class="max-w-4xl mx-auto bg-navy-950 text-white rounded-2xl shadow-2xl border border-emerald-400/35 px-4 py-3 sm:px-6 sm:py-3.5 flex flex-col sm:flex-row items-center justify-between gap-3 pointer-events-auto">
       <div class="flex items-center gap-3">
@@ -1208,8 +1208,7 @@
     const SUBMISSIONS_LOCAL_KEY = "coin_leadership_submissions_v1";
     const SESSION_ID_KEY = "coin_leadership_session_id_v1";
 
-    // 🔗 GOOGLE SHEET CONNECTION:
-    // Paste your Google Apps Script Web App URL between the quotes below to automatically send responses to your Sheet.
+    // Google Apps Script Web App URL for automatic Google Sheet syncing
     const GOOGLE_SHEET_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbzXcM8PDIE-q-r6USQXrcla3LHF9Gx55dD6FqyK3bRjlARIYvQDlzJyTskMZksgy6zV/exec";
 
     const STRENGTH_OPTIONS = [
@@ -1436,7 +1435,7 @@
             fetch(GOOGLE_SHEET_WEBAPP_URL, {
               method: "POST",
               mode: "no-cors",
-              headers: { "Content-Type": "text/plain" }, // Prevents CORS preflight failures on free Apps Script endpoints
+              headers: { "Content-Type": "text/plain" },
               body: JSON.stringify(record)
             });
           } catch (err) {
@@ -2084,7 +2083,7 @@
       rightBtn.disabled = maxScroll <= 2 || container.scrollLeft >= maxScroll - 2;
     }
 
-    // Update all relationship counters, floating bar, and filter indicators
+    // Update all connection counters, floating bar, and filter indicators
     function updateCounters() {
       const markedCount = Object.keys(state.marked).length;
       const submittedCount = state.submissions.length;
@@ -2224,7 +2223,7 @@
                     </p>
                   </div>
 
-                  <!-- One-Tap Relationship Toggle Button -->
+                  <!-- One-Tap Connection Toggle Button -->
                   <button
                     type="button"
                     data-action="toggle-mark"
@@ -2281,7 +2280,7 @@
                   }
                 </dl>
 
-                <!-- Optional Relationship Context Drawer (compact by default; expands only if board member wants to add details) -->
+                <!-- Optional Connection Context Drawer (compact by default; expands only if board member wants to add details) -->
                 ${
                   isMarked
                     ? `<div class="mt-4 pt-3.5 border-t border-emerald-200/80 no-print">
@@ -2731,7 +2730,7 @@
         .join("");
     }
 
-    // Export all saved relationships to CSV
+    // Export all saved connections to CSV
     function downloadMasterCsv() {
       const subs = state.submissions || [];
       if (subs.length === 0) {
@@ -3326,7 +3325,7 @@
         }
       });
 
-      // Delegated Input Handler for Optional Relationship Notes (Auto-Saves)
+      // Delegated Input Handler for Optional Connection Notes (Auto-Saves)
       document.addEventListener("input", (e) => {
         const noteInput = e.target.closest("[data-note-for]");
         if (!noteInput) return;
