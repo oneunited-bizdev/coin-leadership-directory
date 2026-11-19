@@ -488,7 +488,7 @@
             </label>
           </div>
           <p class="text-sm text-emerald-700 font-medium">
-            Changes to your name, email, or marked contacts save automatically—no submit button required.
+            Changes to your name, email, or saved connections save automatically—no submit button required.
           </p>
         </div>
 
@@ -545,8 +545,8 @@
       <!-- Results Header -->
       <div class="px-6 py-4 bg-navy-950 text-white flex items-center justify-between border-b border-slate-800">
         <div>
-          <h2 class="text-lg sm:text-xl font-bold">Board Relationship Rollup — Master Summary</h2>
-          <p id="resultsModalSubtitle" class="text-sm text-slate-300 mt-0.5">Auto-saved rollup of marked relationships for OneUnited Bank</p>
+          <h2 class="text-lg sm:text-xl font-bold">Board Connection Rollup — Master Summary</h2>
+          <p id="resultsModalSubtitle" class="text-sm text-slate-300 mt-0.5">Auto-saved rollup of saved connections for OneUnited Bank</p>
         </div>
         <button
           type="button"
@@ -1646,6 +1646,8 @@
       "Yale Law School",
       "Harvard University",
       "The Harvard Corporation",
+      "Pacific Mutual Holding Company",
+      "CVS Health",
       "PepsiCo Foods North America",
       "Holland America Line",
       "General Catalyst",
@@ -2733,7 +2735,7 @@
     function downloadMasterCsv() {
       const subs = state.submissions || [];
       if (subs.length === 0) {
-        showToast("No saved relationships available to export yet.");
+        showToast("No saved connections available to export yet.");
         return;
       }
 
@@ -2846,10 +2848,16 @@
           let matched = 0;
 
           for (const file of files) {
-            const numMatch = file.name.match(/^(\d{2})_/);
-            if (!numMatch) continue;
-            const idx = parseInt(numMatch[1], 10) - 1;
-            const leader = LEADERS[idx];
+            let leader = LEADERS.find(
+              (l) => l.photoFile === file.name || (l.altPhotoFiles || []).includes(file.name)
+            );
+            if (!leader) {
+              const numMatch = file.name.match(/^(\d{2})_/);
+              if (numMatch) {
+                const idx = parseInt(numMatch[1], 10) - 1;
+                leader = LEADERS[idx];
+              }
+            }
             if (!leader) continue;
 
             const dataUrl = await new Promise((resolve) => {
