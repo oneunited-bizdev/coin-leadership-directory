@@ -162,7 +162,7 @@
               <input
                 id="headerBoardMemberNameInput"
                 type="text"
-                placeholder="Type your full name here so your selections are saved under you..."
+                placeholder="Enter your full name..."
                 class="w-full pl-12 pr-4 py-3 rounded-xl bg-white/15 border border-white/30 text-base font-medium text-white placeholder-slate-300 focus:outline-none focus:bg-white focus:text-navy-950 focus:placeholder-slate-400 focus:border-amber-300 focus:ring-2 focus:ring-amber-300/40 transition"
               />
             </div>
@@ -171,10 +171,10 @@
             </p>
           </div>
 
-          <!-- Saved Connections Counter & Action Buttons -->
+          <!-- Selected Contacts Counter & Action Buttons -->
           <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 shrink-0 xl:pl-6 xl:border-l xl:border-white/15">
             <div class="px-4 py-2 rounded-xl bg-navy-950/45 border border-white/10">
-              <p class="text-sm font-semibold uppercase tracking-wider text-amber-300">Saved Connections</p>
+              <p class="text-sm font-semibold uppercase tracking-wider text-amber-300">Selected Contacts</p>
               <div class="flex items-baseline gap-2">
                 <span id="markedCountHeader" class="text-2xl sm:text-3xl font-extrabold text-white">0</span>
                 <span class="text-base text-slate-300">of 39 leaders</span>
@@ -241,7 +241,7 @@
           </button>
         </div>
 
-        <!-- My Connections Toggle -->
+        <!-- Selected Only Toggle -->
         <div class="flex items-center gap-2.5 self-start sm:self-auto">
           <button
             id="toggleMarkedOnlyBtn"
@@ -249,7 +249,7 @@
             class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-sm font-semibold transition cursor-pointer"
           >
             <span id="markedOnlyDot" class="w-2.5 h-2.5 rounded-full bg-slate-300"></span>
-            <span>My Connections</span>
+            <span>Selected Only</span>
             <span id="markedCountPill" class="px-2 py-0.5 text-sm rounded-md bg-slate-100 text-slate-700 font-bold">0</span>
           </button>
         </div>
@@ -337,14 +337,14 @@
     </footer>
   </main>
 
-  <!-- Floating Bottom Auto-Save Status Bar (appears when >= 1 connection added) -->
+  <!-- Floating Bottom Auto-Save Status Bar (appears when >= 1 contact selected) -->
   <div id="floatingBar" class="fixed bottom-4 inset-x-0 z-40 px-4 pointer-events-none hidden no-print">
     <div class="max-w-4xl mx-auto bg-navy-950 text-white rounded-2xl shadow-2xl border border-emerald-400/35 px-4 py-3 sm:px-6 sm:py-3.5 flex flex-col sm:flex-row items-center justify-between gap-3 pointer-events-auto">
       <div class="flex items-center gap-3">
         <span class="flex items-center justify-center w-9 h-9 rounded-xl bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 font-extrabold text-base" id="floatingCount">0</span>
         <div>
           <p class="text-base font-bold text-white leading-snug flex items-center gap-2">
-            <span>Connections Auto-Saved</span>
+            <span>Selections Auto-Saved</span>
             <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-sm font-semibold">
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
               Saved
@@ -430,7 +430,7 @@
           data-leader-id=""
           class="shrink-0 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-navy-900 hover:bg-navy-800 text-white text-sm font-bold transition cursor-pointer"
         >
-          Add Connection
+          I Know This Person
         </button>
       </div>
     </div>
@@ -1961,16 +1961,16 @@
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
           </svg>
-          <span>Connection Added — Click to Remove</span>
+          <span>Selected — Click to Remove</span>
         `;
       } else {
         btn.className =
           "shrink-0 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-navy-900 hover:bg-navy-800 text-white text-sm font-bold transition cursor-pointer";
         btn.innerHTML = `
           <svg class="w-4 h-4 text-amber-300" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
           </svg>
-          <span>Add Connection</span>
+          <span>I Know This Person</span>
         `;
       }
     }
@@ -2209,7 +2209,7 @@
                               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                               </svg>
-                              Connection Saved
+                              Known Contact
                             </span>`
                           : ""
                       }
@@ -2223,7 +2223,7 @@
                     </p>
                   </div>
 
-                  <!-- One-Tap Connection Toggle Button -->
+                  <!-- One-Tap Selection Toggle Button -->
                   <button
                     type="button"
                     data-action="toggle-mark"
@@ -2239,11 +2239,11 @@
                         ? `<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                           </svg>
-                          <span>Connection Added — Click to Remove</span>`
+                          <span>Selected — Click to Remove</span>`
                         : `<svg class="w-4 h-4 text-amber-300" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                           </svg>
-                          <span>Add Connection</span>`
+                          <span>I Know This Person</span>`
                     }
                   </button>
                 </div>
@@ -2524,9 +2524,9 @@
       if (markedLeaders.length === 0) {
         contentEl.innerHTML = `
           <div class="text-center py-10 px-4 rounded-2xl border border-dashed border-slate-300 bg-slate-50/70">
-            <p class="text-base font-bold text-slate-800">No connections saved yet</p>
+            <p class="text-base font-bold text-slate-800">No contacts selected yet</p>
             <p class="text-sm text-slate-500 mt-1">
-              Close this window and click <strong>Add Connection</strong> on any executive card—your selections save automatically.
+              Close this window and click <strong>I Know This Person</strong> on any executive card—your selections save automatically.
             </p>
           </div>
         `;
@@ -3110,7 +3110,7 @@
           renderDirectory();
           renderSummaryModal();
           updateLightboxMarkButton();
-          showToast("All added connections cleared.");
+          showToast("All selections cleared.");
         });
       }
 
@@ -3158,7 +3158,7 @@
           if (state.marked[leaderId]) {
             delete state.marked[leaderId];
             delete state.expandedDetails[leaderId];
-            showToast("Connection removed (auto-saved).");
+            showToast("Selection removed (auto-saved).");
           } else {
             state.marked[leaderId] = {
               strength: "",
@@ -3166,7 +3166,7 @@
               note: "",
               updatedAt: new Date().toISOString()
             };
-            showToast("Connection added & auto-saved!");
+            showToast("Contact saved!");
           }
           persistState();
           renderDirectory();
