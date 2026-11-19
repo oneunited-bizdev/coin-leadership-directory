@@ -30,19 +30,24 @@
   </script>
   <style>
     html {
-      font-size: 16px;
+      font-size: 18px;
     }
     body {
       font-size: 1rem;
     }
-    /* Enforce a strict 14px (0.875rem) minimum font size across all elements */
+    /* Enforce a strict 18px minimum font size across all elements */
     .text-xs,
+    .text-sm,
+    .text-base,
     .text-\[10px\],
     .text-\[11px\],
     .text-\[12px\],
-    .text-\[13px\] {
-      font-size: 0.875rem !important;
-      line-height: 1.35rem !important;
+    .text-\[13px\],
+    .text-\[14px\],
+    .text-\[15px\],
+    .text-\[16px\] {
+      font-size: 18px !important;
+      line-height: 1.5 !important;
     }
     @media print {
       .no-print {
@@ -105,95 +110,105 @@
 
   <!-- Top Institutional Header -->
   <header class="bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 text-white border-b border-amber-500/30 shadow-lg">
-    <div class="max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-10 py-8 sm:py-10">
-      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
-        <div class="max-w-4xl">
-          <div class="flex flex-wrap items-center gap-2.5 mb-3.5">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-400/15 border border-amber-400/30 text-amber-300 text-sm font-semibold tracking-wider uppercase">
-              <span class="w-2 h-2 rounded-full bg-amber-400"></span>
-              OneUnited Bank - Confidential Directory
-            </div>
-            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-slate-200 text-sm font-medium">
-              <svg class="w-3.5 h-3.5 text-emerald-300 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-              </svg>
-              <span>Invitation-Only</span>
-            </div>
+    <div class="max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-10 py-8 sm:py-10 space-y-7">
+      <!-- Title & Separated Security / How-To Intro Paragraphs -->
+      <div class="max-w-5xl">
+        <div class="flex flex-wrap items-center gap-2.5 mb-3.5">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-400/15 border border-amber-400/30 text-amber-300 text-sm font-semibold tracking-wider uppercase">
+            <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+            OneUnited Bank - Confidential Directory
           </div>
-          <h1 class="text-2xl sm:text-4xl lg:text-[42px] font-extrabold tracking-tight text-white leading-[1.15]">
-            California Organized Investment Network (COIN) Insurance Leadership
-          </h1>
-          <p class="mt-3.5 text-base sm:text-lg text-slate-200 leading-relaxed">
-            This private, unlisted portal is provided and maintained exclusively by
-            <span class="font-semibold text-amber-300">OneUnited Bank</span> and shared by direct invitation. If you have a relationship with any of these contacts, enter your name and mark them below—your selections save automatically. You are welcome to share this link directly with trusted members of your network.
-          </p>
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-slate-200 text-sm font-medium">
+            <svg class="w-4 h-4 text-emerald-300 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+            <span>Private Access</span>
+          </div>
         </div>
 
-        <!-- Relationship Progress & Auto-Save Card -->
-        <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-5 flex flex-col sm:flex-row lg:flex-col items-start sm:items-center lg:items-stretch justify-between gap-4 shrink-0 lg:w-[390px] no-print">
-          <div class="w-full">
-            <div class="flex items-center justify-between gap-2 mb-1.5">
+        <h1 class="text-2xl sm:text-4xl lg:text-[42px] font-extrabold tracking-tight text-white leading-[1.15]">
+          California Organized Investment Network (COIN) Insurance Leadership
+        </h1>
+
+        <div class="mt-4 space-y-3 text-base sm:text-lg text-slate-200 leading-relaxed">
+          <p>
+            This private, unlisted portal is provided and maintained exclusively by
+            <span class="font-semibold text-amber-300">OneUnited Bank</span> and shared through a secure link.
+          </p>
+          <p>
+            If you have a relationship with any of these contacts, enter your name below and select them—your selections save automatically. You are welcome to share this link directly with trusted members of your network.
+          </p>
+        </div>
+      </div>
+
+      <!-- Horizontal Name Entry & Auto-Save Bar (Positioned Prominently Below Intro Note) -->
+      <div class="bg-white/10 backdrop-blur-md border border-amber-400/35 rounded-2xl p-5 sm:p-6 shadow-xl no-print space-y-4">
+        <div class="flex flex-col xl:flex-row xl:items-end justify-between gap-5">
+          <!-- Prominent Horizontal Name Input -->
+          <div class="flex-1 min-w-0">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
               <label for="headerBoardMemberNameInput" class="block text-sm font-bold uppercase tracking-wider text-amber-300">
-                Your Name
+                Your Full Name
               </label>
-              <span id="autoSaveBadge" class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-sm font-bold">
+              <span id="autoSaveBadge" class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-400/35 text-emerald-300 text-sm font-bold">
                 <span id="autoSaveDot" class="w-2 h-2 rounded-full bg-emerald-400"></span>
                 <span id="autoSaveText">Auto-saved</span>
               </span>
             </div>
             <div class="relative">
-              <svg class="w-4 h-4 text-slate-300 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <svg class="w-5 h-5 text-slate-300 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
               </svg>
               <input
                 id="headerBoardMemberNameInput"
                 type="text"
-                placeholder="Enter your full name..."
-                class="w-full pl-10 pr-3.5 py-2.5 rounded-xl bg-white/15 border border-white/25 text-base font-medium text-white placeholder-slate-300 focus:outline-none focus:bg-white focus:text-navy-950 focus:placeholder-slate-400 focus:border-amber-300 transition"
+                placeholder="Type your full name here so your selections are saved under you..."
+                class="w-full pl-12 pr-4 py-3 rounded-xl bg-white/15 border border-white/30 text-base font-medium text-white placeholder-slate-300 focus:outline-none focus:bg-white focus:text-navy-950 focus:placeholder-slate-400 focus:border-amber-300 focus:ring-2 focus:ring-amber-300/40 transition"
               />
             </div>
-            <p id="headerNameHint" class="hidden mt-1.5 text-sm text-amber-200 font-medium">
-              Add your name so your marked contacts are labeled under you.
+            <p id="headerNameHint" class="hidden mt-2 text-sm text-amber-200 font-medium">
+              Add your name above so your saved contacts are labeled under you.
             </p>
           </div>
 
-          <div class="w-full pt-2.5 border-t border-white/10 flex items-center justify-between gap-3">
-            <div>
-              <p class="text-sm font-semibold uppercase tracking-wider text-amber-300">Marked Connections</p>
-              <div class="flex items-baseline gap-2 mt-0.5">
-                <span id="markedCountHeader" class="text-3xl font-extrabold text-white">0</span>
+          <!-- Saved Connections Counter & Action Buttons -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 shrink-0 xl:pl-6 xl:border-l xl:border-white/15">
+            <div class="px-4 py-2 rounded-xl bg-navy-950/45 border border-white/10">
+              <p class="text-sm font-semibold uppercase tracking-wider text-amber-300">Saved Connections</p>
+              <div class="flex items-baseline gap-2">
+                <span id="markedCountHeader" class="text-2xl sm:text-3xl font-extrabold text-white">0</span>
                 <span class="text-base text-slate-300">of 39 leaders</span>
               </div>
             </div>
-          </div>
 
-          <div class="flex flex-col sm:flex-row gap-2.5 w-full">
-            <button
-              type="button"
-              data-action="open-summary"
-              class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-navy-950 font-bold text-sm shadow-md transition cursor-pointer"
-            >
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-              </svg>
-              My Selections
-            </button>
-            <button
-              type="button"
-              data-action="open-results"
-              class="flex-1 inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white border border-white/20 font-semibold text-sm transition cursor-pointer"
-            >
-              <span>Board Results</span>
-              <span id="submittedCountHeader" class="px-2 py-0.5 rounded-md bg-amber-400/20 text-amber-300 font-bold text-sm">0</span>
-            </button>
+            <div class="flex flex-col sm:flex-row gap-2.5">
+              <button
+                type="button"
+                data-action="open-summary"
+                class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-amber-400 hover:bg-amber-300 text-navy-950 font-bold text-sm shadow-md transition cursor-pointer"
+              >
+                <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+                <span>My Selections</span>
+              </button>
+              <button
+                type="button"
+                data-action="open-results"
+                class="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white/10 hover:bg-white/15 text-white border border-white/25 font-semibold text-sm transition cursor-pointer"
+              >
+                <span>Board Results</span>
+                <span id="submittedCountHeader" class="px-2 py-0.5 rounded-md bg-amber-400/20 text-amber-300 font-bold text-sm">0</span>
+              </button>
+            </div>
           </div>
+        </div>
 
-          <div class="w-full pt-2.5 border-t border-white/10 flex items-center gap-2 text-sm text-slate-300">
-            <svg class="w-4 h-4 text-emerald-300 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-            </svg>
-            <span>Private &amp; confidential • Excluded from public search engines</span>
-          </div>
+        <div class="pt-3 border-t border-white/10 flex items-center gap-2 text-sm text-slate-300">
+          <svg class="w-4 h-4 text-emerald-300 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          </svg>
+          <span>Private &amp; confidential • Excluded from public search engines</span>
         </div>
       </div>
     </div>
@@ -226,7 +241,7 @@
           </button>
         </div>
 
-        <!-- Marked Only Toggle -->
+        <!-- My Connections Toggle -->
         <div class="flex items-center gap-2.5 self-start sm:self-auto">
           <button
             id="toggleMarkedOnlyBtn"
@@ -234,7 +249,7 @@
             class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-sm font-semibold transition cursor-pointer"
           >
             <span id="markedOnlyDot" class="w-2.5 h-2.5 rounded-full bg-slate-300"></span>
-            <span>Marked Only</span>
+            <span>My Connections</span>
             <span id="markedCountPill" class="px-2 py-0.5 text-sm rounded-md bg-slate-100 text-slate-700 font-bold">0</span>
           </button>
         </div>
@@ -278,7 +293,7 @@
   <main class="max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-10 py-6 sm:py-8 pb-28">
     <!-- Quick Status Line -->
     <div class="flex flex-wrap items-center justify-between gap-2 mb-6 text-base text-slate-600">
-      <p id="resultsStatusText">Showing all 39 contacts across 12 organizations</p>
+      <p id="resultsStatusText">Showing all 39 contacts across 15 organizations</p>
       <p id="syncStatusText" class="text-sm text-emerald-700 font-medium flex items-center gap-1.5">
         <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
         <span>All selections save automatically</span>
@@ -309,6 +324,7 @@
         Reset Filters
       </button>
     </div>
+
     <!-- Institutional Ownership & Confidentiality Footer -->
     <footer class="mt-14 pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-sm text-slate-500">
       <div class="flex items-center gap-2 font-medium text-slate-700">
@@ -317,7 +333,7 @@
         </svg>
         <span>A private outreach site built and maintained by <strong class="font-bold text-navy-950">OneUnited Bank</strong>.</span>
       </div>
-      <span>Confidential • Invitation-only access • Excluded from public search engines</span>
+      <span>Confidential • Restricted access • Excluded from public search engines</span>
     </footer>
   </main>
 
@@ -328,7 +344,7 @@
         <span class="flex items-center justify-center w-9 h-9 rounded-xl bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 font-extrabold text-base" id="floatingCount">0</span>
         <div>
           <p class="text-base font-bold text-white leading-snug flex items-center gap-2">
-            <span>Relationships Auto-Saved</span>
+            <span>Connections Auto-Saved</span>
             <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-sm font-semibold">
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
               Saved
@@ -414,7 +430,7 @@
           data-leader-id=""
           class="shrink-0 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-navy-900 hover:bg-navy-800 text-white text-sm font-bold transition cursor-pointer"
         >
-          Mark Relationship
+          Add Connection
         </button>
       </div>
     </div>
@@ -427,13 +443,13 @@
       <div class="px-6 py-4 bg-navy-950 text-white flex items-center justify-between border-b border-slate-800">
         <div>
           <div class="flex flex-wrap items-center gap-2.5">
-            <h2 class="text-lg sm:text-xl font-bold">Your Marked COIN Leadership Relationships</h2>
+            <h2 class="text-lg sm:text-xl font-bold">Your Saved COIN Leadership Connections</h2>
             <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-400/35 text-emerald-300 text-sm font-bold">
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
               Auto-Saved
             </span>
           </div>
-          <p id="summaryModalSubtitle" class="text-sm text-slate-300 mt-0.5">Every selection you mark is saved automatically</p>
+          <p id="summaryModalSubtitle" class="text-sm text-slate-300 mt-0.5">Every connection you add is saved automatically</p>
         </div>
         <button
           type="button"
@@ -586,7 +602,7 @@
 
       <!-- Results Footer -->
       <div class="px-6 py-4 bg-slate-50 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3">
-        <p class="text-sm text-slate-500">Updates automatically as relationships are marked</p>
+        <p class="text-sm text-slate-500">Updates automatically as connections are added</p>
         <div class="flex flex-wrap items-center gap-2.5 ml-auto">
           <button
             type="button"
@@ -614,7 +630,7 @@
   </div>
 
   <script>
-    // Complete dataset of all 35 COIN Insurance Leadership contacts across all 12 organizations.
+    // Complete dataset of all 39 COIN Insurance Leadership contacts across all 15 organizations.
     const LEADERS = [
       // STATE FARM
       {
@@ -1021,9 +1037,11 @@
         history: "Co-Founder and Non-Executive Chairman of Velocitas Partners LLC and Operating Executive Board Member at Staple Street Capital. Previously served as Managing Director and Global Partner at The Carlyle Group (2001–2009) and practiced law as a partner at Verner, Liipfert, Bernhard, McPherson & Hand (now DLA Piper). In public service, he served as U.S. Ambassador to the European Union (2009–2013) and Chairman of the Federal Communications Commission (FCC) (1997–2001). He also serves on the boards of AT&T (as Chairman) and Ford Motor Company.",
         education: "B.A. in Communications Studies (Phi Beta Kappa) from Stanford University (1978) and a J.D. from Yale Law School (1981)."
       },
+
+      // JOHN HANCOCK
       {
         id: "noni-l-ellison",
-        organization: "Metropolitan Group",
+        organization: "John Hancock",
         name: "Noni L. Ellison",
         initials: "NE",
         photoFile: "29_Noni_L_Ellison_-_Metropolitan_Group.png",
@@ -1036,8 +1054,6 @@
         greekLabel: "Sorority",
         greek: "Delta Sigma Theta Sorority, Inc. Initiated into the Alpha Chapter at Howard University."
       },
-
-      // JOHN HANCOCK
       {
         id: "dean-c-garfield",
         organization: "John Hancock",
@@ -1051,9 +1067,11 @@
         history: "Chief Public Affairs and Policy Officer at TKO Group Holdings (parent company of UFC and WWE). Previously served as Vice President of Public Policy at Netflix, President and CEO of the Information Technology Industry Council (ITI) (2009–2019), and held senior legal and policy roles at the Motion Picture Association of America (MPAA) and the Recording Industry Association of America (RIAA).",
         education: "B.A. from Princeton University and a J.D. from New York University School of Law (1994)."
       },
+
+      // LINCOLN FINANCIAL GROUP
       {
         id: "reginald-e-davis",
-        organization: "John Hancock",
+        organization: "Lincoln Financial Group",
         name: "Reginald E. Davis",
         initials: "RD",
         photoFile: "31_Reginald_E_Davis_-_John_Hancock.png",
@@ -1066,7 +1084,7 @@
       },
       {
         id: "eric-g-johnson",
-        organization: "John Hancock",
+        organization: "Lincoln Financial Group",
         name: "Eric G. Johnson",
         initials: "EJ",
         photoFile: "32_Eric_G_Johnson_-_John_Hancock.png",
@@ -1079,7 +1097,7 @@
       },
       {
         id: "dale-lefebvre",
-        organization: "John Hancock",
+        organization: "Lincoln Financial Group",
         name: "Dale LeFebvre",
         initials: "DL",
         photoFile: "33_Dale_LeFebvre_-_John_Hancock.png",
@@ -1091,8 +1109,28 @@
         education: "B.S. in Electrical Engineering from the Massachusetts Institute of Technology (MIT) (1993), J.D. from Harvard Law School (1999), and an M.B.A. from Harvard Business School (1999)."
       },
       {
+        id: "allison-green-johnson",
+        organization: "Lincoln Financial Group",
+        name: "Allison Green Johnson",
+        initials: "AJ",
+        photoFile: "39_Allison_Green_Johnson_-_Lincoln_Financial_Group.png",
+        altPhotoFiles: [
+          "39_Allison_Green_Johnson_-_Lincoln_Financial_Group.png",
+          "39_Allison_Green_Johnson.png",
+          "Allison_Green_Johnson.png"
+        ],
+        roleLabel: "Role",
+        role: "Senior Vice President of People, Culture & Communications and President of the Lincoln Financial Foundation (formerly SVP and Chief Diversity Officer, 2011–2022) at Lincoln Financial Group.",
+        location: "Radnor / Wayne, Pennsylvania (Greater Philadelphia Area).",
+        historyLabel: "Previous Companies",
+        history: "Previously served as Corporate Director of Diversity and Inclusion at Wyeth (2006–2009) and held human resources leadership roles at Vanguard (1999–2006).",
+        education: "B.A. in Psychology from Spelman College and an M.A. in Counseling Psychology from Howard University."
+      },
+
+      // CVS HEALTH
+      {
         id: "alecia-a-decoudreaux",
-        organization: "John Hancock",
+        organization: "CVS Health",
         name: "Alecia A. DeCoudreaux",
         initials: "AD",
         photoFile: "34_Alecia_A_DeCoudreaux_-_John_Hancock.png",
@@ -1132,19 +1170,6 @@
         education: "M.D. from the University of Ibadan (Nigeria), M.S. in Medical Education from the University of Southern California, and a Ph.D. in Educational Leadership and Administration from the University of Nebraska–Lincoln."
       },
       {
-        id: "peter-j-taylor",
-        organization: "Cigna Health Group",
-        name: "Peter J. Taylor",
-        initials: "PT",
-        photoFile: "37_Peter_J_Taylor_-_Cigna_Health_Group.png",
-        roleLabel: "Role",
-        role: "Independent Director on the Pacific Mutual Holding Company Board of Directors.",
-        location: "Los Angeles, California.",
-        historyLabel: "Work History",
-        history: "Retired President of the ECMC Foundation (2014–2023). Previously served as Executive Vice President and Chief Financial Officer for the University of California system (2009–2014) and spent nearly 17 years in municipal finance investment banking as a Managing Director at Lehman Brothers and Barclays Capital. He also serves on the boards of Edison International (as Chair), 23andMe, and The Ralph M. Parsons Foundation.",
-        education: "B.A. in Political Science and History from the University of California, Los Angeles (UCLA) and an M.A. in Public Policy from Claremont Graduate University."
-      },
-      {
         id: "geneva-brown",
         organization: "Cigna Health Group",
         name: "Geneva Brown",
@@ -1162,23 +1187,20 @@
         history: "Joined Cigna in 2017 as Associate Senior Counsel supporting corporate governance, M&A, and venture capital transactions. Prior to Cigna, she practiced corporate and securities law at Dechert LLP and served as a federal law clerk for the U.S. District Court for the Eastern District of Virginia.",
         education: "J.D. from the University of Pennsylvania Carey Law School and a Master of Bioethics (M.B.E.) from the University of Pennsylvania Perelman School of Medicine."
       },
+
+      // PACIFIC MUTUAL HOLDING COMPANY
       {
-        id: "allison-green-johnson",
-        organization: "Cigna Health Group",
-        name: "Allison Green Johnson",
-        initials: "AJ",
-        photoFile: "39_Allison_Green_Johnson_-_Lincoln_Financial_Group.png",
-        altPhotoFiles: [
-          "39_Allison_Green_Johnson_-_Lincoln_Financial_Group.png",
-          "39_Allison_Green_Johnson.png",
-          "Allison_Green_Johnson.png"
-        ],
+        id: "peter-j-taylor",
+        organization: "Pacific Mutual Holding Company",
+        name: "Peter J. Taylor",
+        initials: "PT",
+        photoFile: "37_Peter_J_Taylor_-_Cigna_Health_Group.png",
         roleLabel: "Role",
-        role: "Senior Vice President of People, Culture & Communications and President of the Lincoln Financial Foundation (formerly SVP and Chief Diversity Officer, 2011–2022) at Lincoln Financial Group.",
-        location: "Radnor / Wayne, Pennsylvania (Greater Philadelphia Area).",
-        historyLabel: "Previous Companies",
-        history: "Previously served as Corporate Director of Diversity and Inclusion at Wyeth (2006–2009) and held human resources leadership roles at Vanguard (1999–2006).",
-        education: "B.A. in Psychology from Spelman College and an M.A. in Counseling Psychology from Howard University."
+        role: "Independent Director on the Pacific Mutual Holding Company Board of Directors.",
+        location: "Los Angeles, California.",
+        historyLabel: "Work History",
+        history: "Retired President of the ECMC Foundation (2014–2023). Previously served as Executive Vice President and Chief Financial Officer for the University of California system (2009–2014) and spent nearly 17 years in municipal finance investment banking as a Managing Director at Lehman Brothers and Barclays Capital. He also serves on the boards of Edison International (as Chair), 23andMe, and The Ralph M. Parsons Foundation.",
+        education: "B.A. in Political Science and History from the University of California, Los Angeles (UCLA) and an M.A. in Public Policy from Claremont Graduate University."
       }
     ];
 
@@ -1938,7 +1960,7 @@
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
           </svg>
-          <span>Marked — Click to Unmark</span>
+          <span>Connection Added — Click to Remove</span>
         `;
       } else {
         btn.className =
@@ -1947,7 +1969,7 @@
           <svg class="w-4 h-4 text-amber-300" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
           </svg>
-          <span>Mark Relationship</span>
+          <span>Add Connection</span>
         `;
       }
     }
@@ -1975,7 +1997,7 @@
       return orgs;
     }
 
-    // Filter leaders by search text, selected organization, and Marked Only toggle
+    // Filter leaders by search text, selected organization, and My Connections toggle
     function getFilteredLeaders() {
       const q = state.search.trim().toLowerCase();
       return LEADERS.filter((leader) => {
@@ -2186,7 +2208,7 @@
                               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                               </svg>
-                              Relationship Saved
+                              Connection Saved
                             </span>`
                           : ""
                       }
@@ -2216,17 +2238,17 @@
                         ? `<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                           </svg>
-                          <span>Marked — Click to Unmark</span>`
+                          <span>Connection Added — Click to Remove</span>`
                         : `<svg class="w-4 h-4 text-amber-300" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
                           </svg>
-                          <span>Mark Relationship</span>`
+                          <span>Add Connection</span>`
                     }
                   </button>
                 </div>
 
                 <!-- Unabridged Bio Details (Larger, Comfortable Typography) -->
-                <dl class="mt-4 space-y-3 text-base sm:text-[17px] leading-[1.68] text-slate-700">
+                <dl class="mt-4 space-y-3 text-base sm:text-[18px] leading-[1.68] text-slate-700">
                   <div>
                     <dt class="inline font-bold text-navy-950">${escapeHtml(leader.roleLabel)}: </dt>
                     <dd class="inline">${formatBioText(leader.role)}</dd>
@@ -2448,12 +2470,12 @@
       const lines = [
         "CALIFORNIA ORGANIZED INVESTMENT NETWORK (COIN) INSURANCE LEADERSHIP",
         `Name: ${submitter}${email ? ` (${email})` : ""}`,
-        `Total Marked Relationships: ${markedIds.length}`,
+        `Total Saved Connections: ${markedIds.length}`,
         "------------------------------------------------------------"
       ];
 
       if (markedIds.length === 0) {
-        lines.push("No relationships marked yet.");
+        lines.push("No connections saved yet.");
         return lines.join("\n");
       }
 
@@ -2501,9 +2523,9 @@
       if (markedLeaders.length === 0) {
         contentEl.innerHTML = `
           <div class="text-center py-10 px-4 rounded-2xl border border-dashed border-slate-300 bg-slate-50/70">
-            <p class="text-base font-bold text-slate-800">No relationships marked yet</p>
+            <p class="text-base font-bold text-slate-800">No connections saved yet</p>
             <p class="text-sm text-slate-500 mt-1">
-              Close this window and click <strong>Mark Relationship</strong> on any executive card—your selections save automatically.
+              Close this window and click <strong>Add Connection</strong> on any executive card—your selections save automatically.
             </p>
           </div>
         `;
@@ -2598,9 +2620,9 @@
       if (subs.length === 0) {
         contentEl.innerHTML = `
           <div class="text-center py-12 px-4 rounded-2xl border border-dashed border-slate-300 bg-slate-50/70">
-            <p class="text-base font-bold text-slate-800">No relationships marked yet</p>
+            <p class="text-base font-bold text-slate-800">No connections saved yet</p>
             <p class="text-sm text-slate-500 mt-1">
-              Once contacts are marked on the directory, they automatically appear here.
+              Once contacts are selected on the directory, they automatically appear here.
             </p>
           </div>
         `;
@@ -2752,7 +2774,7 @@
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = "COIN-Insurance-Leadership-Relationships.csv";
+      a.download = "COIN-Insurance-Leadership-Connections.csv";
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
@@ -2785,7 +2807,7 @@
       if (modalInput && modalInput.value !== value) modalInput.value = value;
     }
 
-    // Hidden Publisher Mode for bundling all 35 photos into one standalone HTML file
+    // Hidden Publisher Mode for bundling all 39 photos into one standalone HTML file
     function initPublisherMode() {
       const drawer = document.getElementById("publisherDrawer");
       const folderInput = document.getElementById("publisherFolderInput");
@@ -2980,7 +3002,7 @@
         });
       }
 
-      // Marked Only Filter Toggle
+      // My Connections Filter Toggle
       const toggleMarkedOnlyBtn = document.getElementById("toggleMarkedOnlyBtn");
       if (toggleMarkedOnlyBtn) {
         toggleMarkedOnlyBtn.addEventListener("click", () => {
@@ -3081,7 +3103,7 @@
           renderDirectory();
           renderSummaryModal();
           updateLightboxMarkButton();
-          showToast("All marked relationships cleared.");
+          showToast("All added connections cleared.");
         });
       }
 
@@ -3129,7 +3151,7 @@
           if (state.marked[leaderId]) {
             delete state.marked[leaderId];
             delete state.expandedDetails[leaderId];
-            showToast("Relationship removed (auto-saved).");
+            showToast("Connection removed (auto-saved).");
           } else {
             state.marked[leaderId] = {
               strength: "",
@@ -3137,7 +3159,7 @@
               note: "",
               updatedAt: new Date().toISOString()
             };
-            showToast("Relationship marked & auto-saved!");
+            showToast("Connection added & auto-saved!");
           }
           persistState();
           renderDirectory();
@@ -3250,7 +3272,7 @@
         if (action === "copy-summary") {
           copyTextToClipboard(
             buildFormattedSummaryText(),
-            "Relationship summary copied to clipboard!"
+            "Connection summary copied to clipboard!"
           );
           return;
         }
@@ -3258,11 +3280,11 @@
         if (action === "copy-master-report") {
           const subs = state.submissions || [];
           if (subs.length === 0) {
-            showToast("No saved relationships available to copy yet.");
+            showToast("No saved connections available to copy yet.");
             return;
           }
           const lines = [
-            "ONEUNITED BANK — COIN INSURANCE LEADERSHIP MASTER RELATIONSHIP REPORT",
+            "ONEUNITED BANK — COIN INSURANCE LEADERSHIP MASTER CONNECTION REPORT",
             `Total Contributors: ${subs.length}`,
             "============================================================"
           ];
